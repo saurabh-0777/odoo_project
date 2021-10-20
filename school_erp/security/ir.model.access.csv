@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.student.info,access_student_info,model_student_info,base.group_user,1,1,1,1
+access.standard.info,access_standard_info,model_standard_info,base.group_user,1,1,1,1
+access.teacher.info,access_teacher_info,model_teacher_info,base.group_user,1,1,1,1
+access.sport.activity,access_sport_activity,model_sports_activity,base.group_user,1,1,1,1
+access.library.info,access_library_info,model_library_info,base.group_user,1,1,1,1
+access.scholarship.info,access_scholarship_info,model_scholarship_info,base.group_user,1,1,1,1
+access.cultural.fest,access_cultural_fest,model_cultural_fest,base.group_user,1,1,1,1
+access.subject.info,access_subject_info,model_subject_info,base.group_user,1,1,1,1
+access.teachers.subjects.line,access_teachers_subjects_line,model_teachers_subjects_line,base.group_user,1,1,1,1
+access.weather.info,access_weather_info,model_weather_info,base.group_user,1,1,1,1
+access.student.wizard,access_student_wizard,model_student_wizard,base.group_user,1,1,1,1
+access.phone.wizard,access_phone_wizard,model_phone_wizard,base.group_user,1,1,1,1
+access.order.wizard,access_order_wizard,model_order_wizard,base.group_user,1,1,1,1
+access.sale.wizard,access_sale_wizard,model_sale_wizard,base.group_user,1,1,1,1
+access.sponser.fest,access_sponser_fest,model_sponser_fest,base.group_user,1,1,1,1
+access.competition.fees,access_competition_fees,model_competition_fees,base.group_user,1,1,1,1

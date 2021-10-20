@@ -1,0 +1,36 @@
+<odoo>
+        <record id="sale_order_inherit_view_training" model="ir.ui.view">
+            <field name="name">sale.order.inherit.view.training</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='payment_term_id']" position="after">
+                        <field name="room"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                        <field name="verification"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                    <field name="in_time"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='in_time']" position="after">
+                    <field name="out_time"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='out_time']" position="after">
+                    <field name="waiting"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='waiting']" position="after">
+                    <field name="no_of_person"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                    <attribute name="string">Room service</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_confirm']" position="after">
+                    <button name="action_confirm" string="Update" type="object" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>
+
+
+

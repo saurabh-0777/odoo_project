@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="female_info_form_view" model="ir.ui.view">
+            <field name="name">female.info.form.view</field>
+            <field name="model">female.info</field>
+            <field name="arch" type="xml">
+                <form string="Female student info Details">
+                    <sheet>
+                        <group col="4">
+                            <field name="female_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </>
+        </record>
+
+        <record id="female_info_tree_view" model="ir.ui.view">
+            <field name="name">female.info.tree.view</field>
+            <field name="model">female.info</field>
+            <field name="arch" type="xml">
+                <tree string="female_info">
+                    <field name="female_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="female_info_action_view" model="ir.actions.act_window">
+            <field name="name">female info</field>
+            <field name="res_model">female.info</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('gender_male', '=', 'female')]</field>
+        </record>
+
+        <menuitem
+                id="female_info_child_menu"
+                action="female_info_action_view"
+                parent="school_erp.student_info_child_menu"
+                name="Female Student Info"
+                sequence="1"/>
+
+    </data>
+</odoo>

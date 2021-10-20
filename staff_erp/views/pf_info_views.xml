@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="pf_info_form_view" model="ir.ui.view">
+            <field name="name">pf.info.form.view</field>
+            <field name="model">pf.info</field>
+            <field name="arch" type="xml">
+                <form string="Provident Fund">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="joining_date"/>
+                            <field name="retire_date"/>
+                            <field name="provident_fund"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pf_info_tree_view" model="ir.ui.view">
+            <field name="name">pf.info.tree.view</field>
+            <field name="model">pf.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="name"/>
+                    <field name="joining_date"/>
+                    <field name="retire_date"/>
+                    <field name="provident_fund"/>
+                </tree>
+            </field>
+        </record>
+        <record id="pf_action_view" model="ir.actions.act_window">
+            <field name="name">PF Info</field>
+            <field name="res_model">pf.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_staff_record_main" name="Staff"/>
+
+        <menuitem id="pf_info_child_menu"
+                  action="staff_erp.pf_action_view"
+                  parent="staff_erp.menu_staff_record_main"
+                  name="PF Info"
+        />
+    </data>
+</odoo>

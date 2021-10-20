@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record id="rooms_info_form_view" model="ir.ui.view">
+            <field name="name">rooms.info.form.view</field>
+            <field name="model">rooms.info</field>
+            <field name="arch" type="xml">
+                <form string="Rooms">
+                    <sheet>
+                        <group>
+                            <field name="room_no"/>
+                            <field name="floor_no"/>
+                        </group>
+                        <notebook>
+                            <page name="sale" string="Other Expanses">
+<!--                                <group>-->
+<!--                                    <field name="other_expanses"/>-->
+<!--                                </group>-->
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="room_info_tree_view" model="ir.ui.view">
+            <field name="name">rooms.info.tree.view</field>
+            <field name="model">rooms.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="room_no"/>
+                    <field name="floor_no"/>
+                </tree>
+            </field>
+        </record>
+        <record id="rooms_action_view" model="ir.actions.act_window">
+            <field name="name">Rooms Info</field>
+            <field name="res_model">rooms.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_rooms_record_main" name="Hotel Management"/>
+
+        <menuitem id="rooms_info_child_menu"
+                  action="hotel_management_erp.rooms_action_view"
+                  parent="hotel_management_erp.menu_rooms_record_main"
+                  name=" Rooms Info"/>
+    </data>
+</odoo>

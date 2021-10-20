@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="student_info_form_view" model="ir.ui.view">
+            <field name="name">student.info.form.view</field>
+            <field name="model">student.info</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <header>
+                        <button name="change_age" string="Submit" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="middle_name"/>
+                            <field name="full_name"/>
+                            <field name="student_age"/>
+                            <field name="city"/>
+                            <field name="gender_male" widget="radio"/>
+                            <field name="is_pwd"/>
+                            <field name="standard_id"/>
+                            <field name="division"/>
+                            <field name="teacher_name"/>
+                            <field name="sports_id"/>
+                            <field name="quota"/>
+                            <field name="budget"/>
+                            <field name="fest_ids"  widget="many2many_tags"/>
+                            <field name="scholarship_ids"  widget="many2many_tags"/>
+
+                            <!--                            <field name="student1_id"/>-->
+                        </group>
+                        <notebook>
+                            <page name="student" string="Student Information">
+                                <field name="teacher_ids">
+                                    <tree editable="bottom">
+                                        <field name="teacher_name_id" domain="[('subject','=',subject_id)]"/>
+                                        <field name="subject_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="education" string="Education Detail">
+                                <form string="Education Detail">
+                                    <group col="4">
+                                        <field name="chemistry"/>
+                                        <field name="physics"/>
+                                        <field name="math"/>
+                                        <field name="english"/>
+                                        <field name="hsc"/>
+                                        <field name="hsc_percent"/>
+                                        <field name="status"/>
+                                        <field name="documents"/>
+                                    </group>
+                                </form>
+                            </page>
+                            <page name ="timetable" string="Time Table">
+                                <group>
+                                    <field name="timetable"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_info_tree_view" model="ir.ui.view">
+            <field name="name">student.info.tree.view</field>
+            <field name="model">student.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="name"/>
+                    <field name="student_age"/>
+                    <field name="city"/>
+                    <field name="gender_male"/>
+                    <field name="is_pwd"/>
+                    <field name="standard_id"/>
+                    <field name="teacher_name"/>
+                    <field name="sports_id"/>
+                    <field name="quota"/>
+                    <field name="fest_ids"/>
+                    <field name="budget"/>
+                    <!--                    <field name="remaining_amount"/>-->
+                    <field name="scholarship_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_action_view" model="ir.actions.act_window">
+            <field name="name">Student Info</field>
+            <field name="res_model">student.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="student_male_action_view" model="ir.actions.act_window">
+            <field name="name">Male Info</field>
+            <field name="res_model">student.info</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('gender_male', '=', 'male')]</field>
+        </record>
+
+        <record id="student_female_action_view" model="ir.actions.act_window">
+            <field name="name">Female Info</field>
+            <field name="res_model">student.info</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('gender_male', '=', 'female')]</field>
+        </record>
+
+        <menuitem
+                id="school_base_menu"
+                name = "School"
+                sequence="0"/>
+
+        <menuitem
+                id="student_info_child_menu"
+                parent="school_erp.school_base_menu"
+                name="Student Info"
+                sequence="1"/>
+
+        <menuitem
+                id="student1_info_child_menu"
+                action="school_erp.student_action_view"
+                parent="school_erp.student_info_child_menu"
+                name="Student Info"
+                sequence="0"/>
+
+        <menuitem
+                id="student_info_male_menu"
+                action="student_male_action_view"
+                parent="school_erp.student_info_child_menu"
+                name="Male Info"
+                sequence="0"/>
+
+        <menuitem
+                id="student_info_female_menu"
+                action="student_female_action_view"
+                parent="school_erp.student_info_child_menu"
+                name="Female Info"
+                sequence="0"/>
+
+    </data>
+</odoo>

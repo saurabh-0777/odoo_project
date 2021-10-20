@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="salary_info_form_view" model="ir.ui.view">
+            <field name="name">salary.info.form.view</field>
+            <field name="model">salary.info</field>
+            <field name="arch" type="xml">
+                <form string="Salary">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="staff_type"/>
+                            <field name="salary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="salary_info_tree_view" model="ir.ui.view">
+            <field name="name">salary.info.tree.view</field>
+            <field name="model">salary.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="name"/>
+                    <field name="staff_type"/>
+                    <field name="salary"/>
+                </tree>
+            </field>
+        </record>
+        <record id="salary_action_view" model="ir.actions.act_window">
+            <field name="name">Salary Info</field>
+            <field name="res_model">salary.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_staff_record_main" name="Staff"/>
+
+        <menuitem id="salary_info_child_menu"
+                  action="staff_erp.salary_action_view"
+                  parent="staff_erp.menu_staff_record_main"
+                  name="salary Info"
+        />
+    </data>
+</odoo>

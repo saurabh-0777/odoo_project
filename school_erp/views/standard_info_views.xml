@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="standard_info_form_view" model="ir.ui.view">
+            <field name="name">standard.info.form.view</field>
+            <field name="model">standard.info</field>
+            <field name="arch" type="xml">
+                <form string="Standard">
+                    <sheet>
+                        <group>
+                            <field name="std_name"/>
+                            <field name="division"/>
+                            <field name="teacher_name"/>
+                        </group>
+                         <notebook>
+                            <page name="student" string="Students Information">
+                                <field name="students_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="student_age"/>
+                                        <field name="city"/>
+                                        <field name="gender_male"/>
+                                        <field name="sports_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="other" string="Other Information">
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="standard_info_tree_view" model="ir.ui.view">
+            <field name="name">standard.info.tree.view</field>
+            <field name="model">standard.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="std_name"/>
+                    <field name="division"/>
+                    <field name="teacher_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="standard_action_view" model="ir.actions.act_window">
+            <field name="name">Standard Info</field>
+            <field name="res_model">standard.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem
+                id="standard_info_child_menu"
+                parent="school_erp.school_base_menu"
+                name="Standard Info"
+                sequence="1"/>
+
+        <menuitem
+                id="standard1_info_child_menu"
+                action="school_erp.standard_action_view"
+                parent="school_erp.standard_info_child_menu"
+                name="Standard Info"
+                sequence="0"/>
+    </data>
+</odoo>

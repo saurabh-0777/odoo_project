@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_student_wizard_form" model="ir.ui.view">
+        <field name="name">view.student.wizard.form</field>
+        <field name="model">student.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="update_age"/>
+                </group>
+                <footer>
+                    <button name="age_update" string="Update Age" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="student_wizard_action_record" model="ir.actions.act_window">
+        <field name="name">Update Age</field>
+        <field name="res_model">student.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_student_wizard_form"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="school_erp.model_student_info"/>
+        <field name="binding_view_types">form,list</field>
+    </record>
+
+    <!--    <act_window id="student_wizard_action_view" name="Update Age" res_model="student.wizard"-->
+    <!--                src_model="standard.info" view_mode="form" target="new"/>-->
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="male_info_form_view" model="ir.ui.view">
+            <field name="name">male.info.form.view</field>
+            <field name="model">male.info</field>
+            <field name="arch" type="xml">
+                <form string="Male student info Details">
+                    <sheet>
+                        <group col="4">
+                            <field name="male_id"/>
+<!--                            <field name="name"/>-->
+<!--                            <field name="student_age"/>-->
+<!--                            <field name="quota"/>-->
+<!--                            <field name="gender_male"/>-->
+<!--                            <field name="is_pwd"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="male_info_tree_view" model="ir.ui.view">
+            <field name="name">male.info.tree.view</field>
+            <field name="model">male.info</field>
+            <field name="arch" type="xml">
+                <tree string="male_info">
+                    <field name="male_id"/>
+<!--                    <field name="name"/>-->
+<!--                    <field name="student_age"/>-->
+<!--                    <field name="quota"/>-->
+<!--                    <field name="gender_male"/>-->
+<!--                    <field name="is_pwd"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="male_info_action_view" model="ir.actions.act_window">
+            <field name="name">male info</field>
+            <field name="res_model">male.info</field>
+            <field name="view_mode">tree,form</field>
+             <field name="domain">[('gender_male', '=', 'male')]</field>
+        </record>
+
+        <menuitem
+                id="male_info_child_menu"
+                action="male_info_action_view"
+                parent="school_erp.student_info_child_menu"
+                name="Male Student Info"
+                sequence="1"/>
+
+    </data>
+</odoo>

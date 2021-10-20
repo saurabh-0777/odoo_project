@@ -1,0 +1,23 @@
+<odoo>
+      <record id="hotel_inherit_view_training" model="ir.ui.view">
+            <field name="name">hotel.partner.inherit.view.training</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="mode">extension</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                    <page string="other expanses">
+                        <field name="room_info_ids">
+                            <tree editable='bottom'>
+                                <field name="product"/>
+                                <field name="quantity"/>
+                                <field name="uom_qty"/>
+                                <field name="price"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+             </field>
+    </record>
+
+</odoo>

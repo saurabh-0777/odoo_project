@@ -1,0 +1,43 @@
+<odoo>
+        <record id="sale_order_inherit_view_training" model="ir.ui.view">
+            <field name="name">sale.order.inherit.view.training</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sale_reporting']/group[@name='utm_link']" position="inside">
+                        <field name="order_day_info"/>
+                </xpath>
+                <xpath expr="//group[@name='sales_person']" position="inside">
+                        <field name="Discount_code"/>
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="replace">
+                        <field name="Discount_code"/>
+                </xpath>
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                    <field name="product_short_code"/>
+                </xpath>
+                 <xpath expr="//field[@name='product_short_code']" position="before">
+                    <field name="cat"/>
+                </xpath>
+                <xpath expr="//field[@name='validity_date']" position="attributes">
+                    <attribute name="attrs">{"readonly" : 1 }</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="attrs">{"readonly" : 0 }</attribute>
+                </xpath>
+                <xpath expr="//button[@name = 'action_draft']" position="after">
+                    <button name="%(school_erp.order_wizard_action_record)d" string="Add Detail" type="action" class="btn-primary"/>
+                </xpath>
+                 <xpath expr="//field[@name='payment_term_id']" position="after">
+                        <field name="tax_discount"/>
+                </xpath>
+                <xpath expr="//field[@name='amount_untaxed']" position="after">
+                        <field name="discount"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                        <field name="customer_email"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>
+

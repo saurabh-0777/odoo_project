@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="library_activity_form_view" model="ir.ui.view">
+            <field name="name">library.info.form.view</field>
+            <field name="model">library.info</field>
+            <field name="arch" type="xml">
+                <form string="library_info">
+                    <sheet>
+                        <group col="4">
+                            <field name="book_name"/>
+                            <field name="book_author"/>
+                            <field name="book_issue_date"/>
+                            <field name="book_return_date"/>
+                        </group>
+                         <notebook>
+                            <page name="library" string="Library Information">
+                                <field name="library_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="book_author"/>
+                                        <field name="book_issue_date"/>
+                                        <field name="book_return_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="library_activity_tree_view" model="ir.ui.view">
+            <field name="name">library.info.tree.view</field>
+            <field name="model">library.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="book_name"/>
+                    <field name="book_author"/>
+                    <field name="book_issue_date"/>
+                    <field name="book_return_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="library_activity_action_view" model="ir.actions.act_window">
+            <field name="name">library Action</field>
+            <field name="res_model">library.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+         <menuitem
+                id="library_info_child_menu"
+                action="library_activity_action_view"
+                parent="school_erp.school_base_menu"
+                name="Library Info"
+                sequence="1"/>
+
+    </data>
+</odoo>

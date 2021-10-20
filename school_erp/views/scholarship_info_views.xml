@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="scholarship_info_form_view" model="ir.ui.view">
+            <field name="name">scholarship.info.form.view</field>
+            <field name="model">scholarship.info</field>
+            <field name="arch" type="xml">
+                <form string="scholarship info Details">
+                    <sheet>
+                        <group col="4">
+                            <field name="scholarship_name"/>
+                            <field name="student_name"/>
+<!--                            <field name="standard_id"/>-->
+<!--                            <field name="division1"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="scholarship_info_tree_view" model="ir.ui.view">
+            <field name="name">scholarship.info.tree.view</field>
+            <field name="model">scholarship.info</field>
+            <field name="arch" type="xml">
+                <tree string="Scholarship_info">
+                    <field name="scholarship_name"/>
+                    <field name="student_name"/>
+<!--                    <field name="standard_id"/>-->
+<!--                    <field name="division1"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="scholarship_info_action_view" model="ir.actions.act_window">
+            <field name="name">Scholarship info</field>
+            <field name="res_model">scholarship.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="scholarship_info_child_menu"
+                action="scholarship_info_action_view"
+                parent="school_erp.standard_info_child_menu"
+                name="Scholarship Info"
+                sequence="1"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cultural_fest_form_view" model="ir.ui.view">
+            <field name="name">cultural.fest.form.view</field>
+            <field name="model">cultural.fest</field>
+            <field name="arch" type="xml">
+                <form string="Cultural Fest Details">
+                    <sheet>
+                        <group col="4">
+                            <field name="fest_name"/>
+                            <field name="standard_id"/>
+                            <field name="festival_information"/>
+                            <field name="number_of_participants"/>
+                            <field name="competition"/>
+                            <field name="fees_amount"/>
+                            <field name="name"/>
+                        </group>
+                         <notebook>
+                            <page name="sponser" string="Sponser Information">
+                                <field name="sponser_fest_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="sponser_name"/>
+                                        <field name="contribution"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="other" string="Other Information">
+                                <field name="competition_fees_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="competition"/>
+                                        <field name="fees_amount"/>
+                                        <field name="fees_calculate"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cultural_fest_tree_view" model="ir.ui.view">
+            <field name="name">cultural.fest.tree.view</field>
+            <field name="model">cultural.fest</field>
+            <field name="arch" type="xml">
+                <tree string="Cultural Lists">
+                    <field name="fest_name"/>
+                    <field name="standard_id"/>
+                    <field name="festival_information"/>
+                    <field name="number_of_participants"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cultural_fest_action_view" model="ir.actions.act_window">
+            <field name="name">Cultural Fest</field>
+            <field name="res_model">cultural.fest</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="cultural_fest_child_menu"
+                action="cultural_fest_action_view"
+                parent="school_erp.school_base_menu"
+                name="Cultural fest"
+                sequence="1"/>
+
+    </data>
+</odoo>

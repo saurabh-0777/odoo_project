@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="teacher_info_form_view" model="ir.ui.view">
+            <field name="name">teacher.info.form.view</field>
+            <field name="model">teacher.info</field>
+            <field name="arch" type="xml">
+                <form string="Teacher">
+                    <sheet>
+                        <group col="4">
+                            <field name="teacher_name"/>
+                            <field name="Surname"/>
+                            <field name="teachers_age"/>
+<!--                            <field name="student_std"/>-->
+                            <field name="city"/>
+                            <field name="gender" widget="radio"/>
+                            <field name="is_pwd"/>
+                            <field name="standard_id"/>
+                            <field name="division"/>
+                            <field name="subject"/>
+                            <field name="teacher_id_no"/>
+<!--                            <field name="subject_id"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="teacher_info_tree_view" model="ir.ui.view">
+            <field name="name">teacher.info.tree.view</field>
+            <field name="model">teacher.info</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="teacher_name"/>
+                    <field name="teachers_age"/>
+                   <field name="standard_id"/>
+<!--                   <field name="subject_id"/>-->
+                    <field name="gender"/>
+                    <field name="subject"/>
+                    <field name="is_pwd" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="teacher_action_view" model="ir.actions.act_window">
+            <field name="name">Teacher Info</field>
+            <field name="res_model">teacher.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem
+                id="teacher_info_child_menu"
+                action="teacher_action_view"
+                parent="school_erp.school_base_menu"
+                name="Teacher Info"
+                sequence="0"/>
+
+        <menuitem id="customers_kanban"
+                  name="Customers kanban"
+                  parent="school_erp.teacher_info_child_menu"
+                  action="base.action_partner_form"/>
+    </data>
+</odoo>
